@@ -69,7 +69,7 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
                             <span className="text-xl font-bold text-slate-900">D'Quizz</span>
                         </div>
                         <p className="text-slate-500 max-w-sm">
-                            A new way to make the payments easy, reliable and secure.
+                            Transforming passive visitors into engaged prospects through the power of quiz funnels.
                         </p>
                     </div>
                     <div>
