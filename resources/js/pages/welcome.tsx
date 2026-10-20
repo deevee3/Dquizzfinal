@@ -16,7 +16,7 @@ import {
 export default function Welcome() {
     return (
         <MarketingLayout>
-            <Head title="D'Quizz - Next Gen Quiz Funnels" />
+            <Head title="D'Quizz - Turn Visitors into Customers" />
             
             {/* Hero Section */}
             <section className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 px-6 overflow-hidden">
@@ -26,18 +26,18 @@ export default function Welcome() {
                         <div className="relative z-10 text-center lg:text-left">
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#F48D5C]/30 bg-[#FFF5EC] text-[#F48D5C] text-xs font-bold mb-8 uppercase tracking-wider shadow-sm">
                                 <Sparkles className="w-3 h-3" />
-                                <span>AI-Powered Quiz Funnels</span>
+                                <span>Turn Clicks into Customers</span>
                             </div>
                             <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-slate-900">
-                                The Next Gen <br />
+                                Turn Curious Visitors <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F48D5C] to-[#E85D04]">
-                                    Lead Generation
+                                    Into Ready Buyers
                                 </span>
                             </h1>
                             <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                                Create personalized scorecard marketing funnels that capture leads, 
-                                qualify prospects, and deliver tailored results. 
-                                <span className="text-slate-900 font-semibold"> Build in minutes, launch today.</span>
+                                Stop chasing cold leads. D'Quizz asks your visitors the right questions, 
+                                scores their answers, and hands you people who already want what you sell.
+                                <span className="text-slate-900 font-semibold"> Build your first quiz this afternoon.</span>
                             </p>
                             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-12">
                                 <Link href={login.url()}>
@@ -50,19 +50,19 @@ export default function Welcome() {
                                 </Button>
                             </div>
 
-                            {/* Stats */}
+                            {/* Why it works */}
                             <div className="grid grid-cols-3 gap-8 border-t border-slate-200 pt-8 max-w-lg mx-auto lg:mx-0">
                                 <div>
-                                    <div className="text-3xl font-bold text-slate-900 mb-1">3.8k+</div>
-                                    <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Active Users</div>
+                                    <div className="text-3xl font-bold text-slate-900 mb-1">Qualified</div>
+                                    <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Leads scored before they reach you</div>
                                 </div>
                                 <div>
-                                    <div className="text-3xl font-bold text-slate-900 mb-1">230+</div>
-                                    <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Templates</div>
+                                    <div className="text-3xl font-bold text-slate-900 mb-1">Segmented</div>
+                                    <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Every answer tags itself</div>
                                 </div>
                                 <div>
-                                    <div className="text-3xl font-bold text-slate-900 mb-1">$23M+</div>
-                                    <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Generated</div>
+                                    <div className="text-3xl font-bold text-slate-900 mb-1">Yours</div>
+                                    <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Your list, your data, no middleman</div>
                                 </div>
                             </div>
                         </div>
@@ -143,8 +143,8 @@ export default function Welcome() {
                                 </div>
                                 <h3 className="text-2xl font-bold mb-4 text-slate-900">Visual Builder</h3>
                                 <p className="text-slate-500 max-w-md text-lg leading-relaxed">
-                                    Drag-and-drop interface to build complex logic flows without writing a single line of code. 
-                                    What you see is what you get.
+                                    Launch your first quiz this afternoon. No developer, no designer, no code — 
+                                    if you can drag, you can build.
                                 </p>
                             </div>
                         </div>
@@ -157,7 +157,8 @@ export default function Welcome() {
                                 </div>
                                 <h3 className="text-2xl font-bold mb-4 text-white">Smart Scoring</h3>
                                 <p className="text-white/90 text-lg leading-relaxed">
-                                    Automatically calculate scores and segment users into different buckets based on their responses.
+                                    Your best prospects raise their own hands. Scores sort them automatically, 
+                                    so you call the right people first.
                                 </p>
                             </div>
                         </div>
@@ -165,17 +166,17 @@ export default function Welcome() {
                         <FeatureCard 
                             icon={<Users />}
                             title="Lead Capture"
-                            description="High-converting forms that integrate seamlessly with your favorite CRM and email tools."
+                            description="Every completion hands you a name, an email, and exactly what they want — sent straight to your CRM."
                         />
                         <FeatureCard 
                             icon={<BarChart3 />}
                             title="Analytics"
-                            description="Deep insights into user behavior, drop-off points, and conversion metrics."
+                            description="See where people drop off and fix it. Watch completions turn into conversations."
                         />
                         <FeatureCard 
                             icon={<Blocks />}
                             title="Integrations"
-                            description="Connect with 50+ tools including Slack, Mailchimp, HubSpot, and more."
+                            description="Every lead flows straight into the tools you already use — your CRM, your email, your Slack."
                         />
                     </div>
                 </div>
@@ -185,9 +186,10 @@ export default function Welcome() {
             <section id="how-it-works" className="py-24 px-6 bg-white/40">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20">
-                        <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-slate-900">Easily control your <br />quiz & flow.</h2>
+                        <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-slate-900">From visitor to customer <br />in three steps.</h2>
                         <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-                            From simple surveys to complex diagnostic tools, we provide the infrastructure you need.
+                            You bring the questions. D'Quizz handles the scoring, the follow-up, 
+                            and the handoff to your sales process.
                         </p>
                     </div>
 
@@ -195,19 +197,19 @@ export default function Welcome() {
                         <div className="space-y-6">
                             <StepItem 
                                 number="01" 
-                                title="Design your questions"
-                                description="Choose from multiple question types including multiple choice, slider, and text input."
+                                title="Ask what matters"
+                                description="Find out budget, timeline, and fit before you ever get on a call."
                                 active
                             />
                             <StepItem 
                                 number="02" 
-                                title="Set scoring logic"
-                                description="Assign points and values to answers to determine the final outcome."
+                                title="Let scores do the sorting"
+                                description="Hot prospects float to the top. Tire-kickers filter themselves out."
                             />
                             <StepItem 
                                 number="03" 
-                                title="Customize results"
-                                description="Create personalized result pages that speak directly to the user's situation."
+                                title="Give them their answer"
+                                description="Each person gets a personalized result that makes your offer the obvious next step."
                             />
                         </div>
                         <div className="relative">
@@ -269,38 +271,38 @@ export default function Welcome() {
                     </div>
 
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        <UseCaseCard title="Scorecards" description="Help prospects assess their readiness or maturity level" />
-                        <UseCaseCard title="Assessments" description="Evaluate skills, knowledge, or fit for your offerings" />
-                        <UseCaseCard title="Lead Magnets" description="Exchange valuable insights for contact information" />
-                        <UseCaseCard title="Surveys" description="Gather feedback and understand your audience better" />
-                        <UseCaseCard title="Waitlists" description="Build anticipation and qualify early adopters" />
-                        <UseCaseCard title="Qualifiers" description="Pre-qualify leads before sales conversations" />
+                        <UseCaseCard title="Scorecards" description="Show prospects where they stand — and why they need you to go further." />
+                        <UseCaseCard title="Assessments" description="Let people qualify themselves before they ever book your calendar." />
+                        <UseCaseCard title="Lead Magnets" description="Trade a personalized result for their email. Everybody wins." />
+                        <UseCaseCard title="Surveys" description="Ask your market what it wants, in its own words." />
+                        <UseCaseCard title="Waitlists" description="Launch to a line of people already waiting, not an empty room." />
+                        <UseCaseCard title="Qualifiers" description="Walk into every sales call knowing budget, need, and timeline." />
                     </div>
                 </div>
             </section>
 
-            {/* Testimonials / Social Proof */}
+            {/* Why quizzes beat forms */}
             <section className="py-24 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-slate-900">What people are saying</h2>
+                        <h2 className="text-3xl font-bold text-slate-900">Why quizzes beat forms</h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto mt-4 text-lg">
+                            A form asks for an email. A quiz earns it — and tells you exactly who you're talking to.
+                        </p>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
-                        <TestimonialCard 
-                            quote="Simple, powerful, and effective. It helped me segment my audience and build trust before I even pitch my product."
-                            author="Sarah Jenks"
-                            role="Founder, Live More"
-                        />
-                        <TestimonialCard 
-                            quote="The scoring logic is incredibly flexible. We use it for pre-qualifying leads and it has saved our sales team hundreds of hours."
-                            author="Mark Thompson"
-                            role="CMO, TechFlow"
-                        />
-                        <TestimonialCard 
-                            quote="Best lead magnet I've ever created. My cost per lead dropped by 60% within the first week of launching."
-                            author="David Chen"
-                            role="Growth Consultant"
-                        />
+                        <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                            <h3 className="text-xl font-bold mb-3 text-slate-900">They tell you what they want</h3>
+                            <p className="text-slate-500 leading-relaxed">Every answer is a buying signal. You stop guessing what prospects need and start knowing.</p>
+                        </div>
+                        <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                            <h3 className="text-xl font-bold mb-3 text-slate-900">They convince themselves</h3>
+                            <p className="text-slate-500 leading-relaxed">Answering the right questions sells your prospect on your offer before you say a word.</p>
+                        </div>
+                        <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                            <h3 className="text-xl font-bold mb-3 text-slate-900">You get a segmented list</h3>
+                            <p className="text-slate-500 leading-relaxed">No more one-size-fits-all follow-up. Every lead arrives tagged by need and readiness.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -314,9 +316,9 @@ export default function Welcome() {
                         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
                         
                         <div className="relative z-10">
-                            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">Ready to start?</h2>
+                            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white tracking-tight">Your next customer is one quiz away.</h2>
                             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-                                Everything you need to accept card payments and grow your business anywhere on the planet.
+                                Build your first quiz today. Your future customers are already clicking.
                             </p>
                             <Link href={login()}>
                                 <Button size="lg" className="h-14 px-10 text-lg bg-white text-[#E85D04] hover:bg-white/90 shadow-xl border-none rounded-xl font-bold">
@@ -365,26 +367,6 @@ function UseCaseCard({ title, description }: { title: string; description: strin
         <div className="rounded-2xl border border-slate-100 bg-white p-6 transition-all hover:border-[#F48D5C]/30 hover:shadow-md cursor-default">
             <h3 className="mb-2 text-lg font-bold text-slate-900">{title}</h3>
             <p className="text-sm text-slate-500 leading-relaxed">{description}</p>
-        </div>
-    );
-}
-
-function TestimonialCard({ quote, author, role }: { quote: string, author: string, role: string }) {
-    return (
-        <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all">
-            <div className="mb-6 text-[#F48D5C]">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 7.55228 14.017 7V3H19.017C20.6739 3 22.017 4.34315 22.017 6V15C22.017 16.6569 20.6739 18 19.017 18H16.017C15.4647 18 15.017 18.4477 15.017 19V21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91196 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 7.55228 5.0166 7V3H10.0166C11.6735 3 13.0166 4.34315 13.0166 6V15C13.0166 16.6569 11.6735 18 10.0166 18H7.0166C6.46432 18 6.0166 18.4477 6.0166 19V21H5.0166Z" />
-                </svg>
-            </div>
-            <p className="text-slate-700 mb-6 leading-relaxed text-lg">"{quote}"</p>
-            <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#FFF5EC] border border-[#F48D5C]/20" />
-                <div>
-                    <div className="font-bold text-slate-900">{author}</div>
-                    <div className="text-sm text-slate-500">{role}</div>
-                </div>
-            </div>
         </div>
     );
 }

@@ -15,6 +15,7 @@ class Submission extends Model
         'quiz_id',
         'lead_id',
         'result_outcome_id',
+        'view_token',
         'total_score',
         'dimension_scores',
         'ip_address',

@@ -161,11 +161,13 @@ class PublicQuizController extends Controller
                 })
                 ->first();
 
-            // Create submission
+            // Create submission (view_token makes the result URL unguessable —
+            // sequential IDs alone would let anyone enumerate other takers' results)
             $submission = Submission::create([
                 'quiz_id' => $quiz->id,
                 'lead_id' => $lead?->id,
                 'result_outcome_id' => $resultOutcome?->id,
+                'view_token' => Str::random(40),
                 'total_score' => $totalScore,
                 'dimension_scores' => $dimensionScores,
                 'ip_address' => $request->ip(),
@@ -198,7 +200,7 @@ class PublicQuizController extends Controller
 
             return redirect()->route('public.quiz.results', [
                 'slug' => $quiz->slug,
-                'submission' => $submission->id,
+                'token' => $submission->view_token,
             ])
             ->withCookie(cookie('quiz_completed_' . $quiz->id, true, 525600)) // 1 year
             ->withCookie(cookie('visitor_id', $visitorId, 2628000)); // 5 years
@@ -206,11 +208,13 @@ class PublicQuizController extends Controller
     }
 
     /**
-     * Display quiz results.
+     * Display quiz results. Looked up by unguessable view token —
+     * sequential IDs would let anyone enumerate other takers' results.
      */
-    public function results(string $slug, Submission $submission)
+    public function results(string $slug, string $token)
     {
         $quiz = Quiz::where('slug', $slug)->firstOrFail();
+        $submission = Submission::where('view_token', $token)->firstOrFail();
 
         // Verify submission belongs to this quiz
         if ($submission->quiz_id !== $quiz->id) {

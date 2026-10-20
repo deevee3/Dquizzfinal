@@ -32,7 +32,7 @@ Route::get('/q/{slug}', [PublicQuizController::class, 'show'])->name('public.qui
 Route::post('/q/{slug}/submit', [PublicQuizController::class, 'submit'])
     ->name('public.quiz.submit')
     ->middleware('throttle:6,1'); // Limit to 6 submissions per minute
-Route::get('/q/{slug}/results/{submission}', [PublicQuizController::class, 'results'])->name('public.quiz.results');
+Route::get('/q/{slug}/results/{token}', [PublicQuizController::class, 'results'])->name('public.quiz.results');
 
 Route::middleware([
     'auth',
