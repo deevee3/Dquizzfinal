@@ -52,6 +52,12 @@ interface ResultOutcome {
     order: number;
 }
 
+interface BrandSettings {
+    primary_color?: string;
+    secondary_color?: string;
+    logo_url?: string;
+}
+
 interface Quiz {
     id: number;
     title: string;
@@ -60,8 +66,9 @@ interface Quiz {
     status: 'draft' | 'published' | 'archived';
     type: string;
     lead_capture_mode: string;
-    brand_settings: object | null;
+    brand_settings: BrandSettings | null;
     cta_settings: object | null;
+    max_possible_score: number;
     questions: Question[];
     result_outcomes: ResultOutcome[];
 }
@@ -219,6 +226,30 @@ export default function QuizEdit({ quiz }: QuizEditProps) {
     const handleBasicsSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         basicsForm.put(`/quizzes/${quiz.id}`);
+    };
+
+    // Design form (brand_settings is stored on the quiz and styles the
+    // public quiz pages; the update endpoint requires the basics fields,
+    // so they ride along unchanged)
+    const designForm = useForm({
+        title: quiz.title,
+        description: quiz.description || '',
+        type: quiz.type,
+        lead_capture_mode: quiz.lead_capture_mode,
+        brand_settings: {
+            primary_color: quiz.brand_settings?.primary_color || '#E97451',
+            secondary_color: quiz.brand_settings?.secondary_color || '#E85D04',
+            logo_url: quiz.brand_settings?.logo_url || '',
+        },
+    });
+
+    const handleDesignSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        designForm.put(`/quizzes/${quiz.id}`, { preserveScroll: true });
+    };
+
+    const setBrandSetting = (key: 'primary_color' | 'secondary_color' | 'logo_url', value: string) => {
+        designForm.setData('brand_settings', { ...designForm.data.brand_settings, [key]: value });
     };
 
     // Question form
@@ -616,6 +647,11 @@ export default function QuizEdit({ quiz }: QuizEditProps) {
                                                     <span>Lower scores</span>
                                                     <span>Higher scores</span>
                                                 </div>
+                                                <p className="mt-3 text-xs text-muted-foreground">
+                                                    Maximum possible score on this quiz:{' '}
+                                                    <span className="font-semibold text-foreground">{quiz.max_possible_score} points</span>
+                                                    {' '}— a threshold range above that can never match a real result.
+                                                </p>
                                             </div>
 
                                             {/* Threshold Cards */}
@@ -698,15 +734,93 @@ export default function QuizEdit({ quiz }: QuizEditProps) {
 
                     {/* Design Tab */}
                     {activeTab === 'design' && (
-                        <Card className="max-w-2xl">
-                            <CardHeader>
-                                <CardTitle>Design Settings</CardTitle>
-                                <CardDescription>Customize the look and feel of your quiz</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground">Design customization coming soon...</p>
-                            </CardContent>
-                        </Card>
+                        <form onSubmit={handleDesignSubmit} className="max-w-2xl space-y-6">
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle>Design Settings</CardTitle>
+                                    <CardDescription>
+                                        These colors style your public quiz and results pages — buttons, progress, and accents use your
+                                        primary color.
+                                    </CardDescription>
+                                </CardHeader>
+                                <CardContent className="space-y-6">
+                                    <div className="grid gap-4 sm:grid-cols-2">
+                                        <div className="space-y-2">
+                                            <Label htmlFor="primary_color">Primary color</Label>
+                                            <div className="flex items-center gap-2">
+                                                <input
+                                                    type="color"
+                                                    value={designForm.data.brand_settings.primary_color}
+                                                    onChange={(e) => setBrandSetting('primary_color', e.target.value)}
+                                                    className="h-10 w-12 cursor-pointer rounded-md border border-input bg-background p-1"
+                                                />
+                                                <Input
+                                                    id="primary_color"
+                                                    value={designForm.data.brand_settings.primary_color}
+                                                    onChange={(e) => setBrandSetting('primary_color', e.target.value)}
+                                                    placeholder="#E97451"
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <Label htmlFor="secondary_color">Secondary color</Label>
+                                            <div className="flex items-center gap-2">
+                                                <input
+                                                    type="color"
+                                                    value={designForm.data.brand_settings.secondary_color}
+                                                    onChange={(e) => setBrandSetting('secondary_color', e.target.value)}
+                                                    className="h-10 w-12 cursor-pointer rounded-md border border-input bg-background p-1"
+                                                />
+                                                <Input
+                                                    id="secondary_color"
+                                                    value={designForm.data.brand_settings.secondary_color}
+                                                    onChange={(e) => setBrandSetting('secondary_color', e.target.value)}
+                                                    placeholder="#E85D04"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <Label htmlFor="logo_url">Logo URL (optional)</Label>
+                                        <Input
+                                            id="logo_url"
+                                            value={designForm.data.brand_settings.logo_url}
+                                            onChange={(e) => setBrandSetting('logo_url', e.target.value)}
+                                            placeholder="https://example.com/logo.png"
+                                        />
+                                        <p className="text-xs text-muted-foreground">
+                                            Stored with your brand settings for use on your quiz pages.
+                                        </p>
+                                    </div>
+
+                                    {/* Live preview */}
+                                    <div className="space-y-2">
+                                        <Label>Preview</Label>
+                                        <div className="rounded-lg border bg-card p-4">
+                                            <div
+                                                className="mb-3 h-2 rounded-full"
+                                                style={{
+                                                    background: `linear-gradient(to right, ${designForm.data.brand_settings.primary_color}, ${designForm.data.brand_settings.secondary_color})`,
+                                                }}
+                                            />
+                                            <p className="mb-3 text-sm font-medium">{quiz.title}</p>
+                                            <span
+                                                className="inline-flex items-center rounded-md px-4 py-2 text-sm font-semibold text-white"
+                                                style={{ backgroundColor: designForm.data.brand_settings.primary_color }}
+                                            >
+                                                Continue
+                                            </span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                            <Button type="submit" disabled={designForm.processing}>
+                                {designForm.processing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                                <Save className="mr-2 h-4 w-4" />
+                                Save Design
+                            </Button>
+                        </form>
                     )}
                 </div>
             </div>
@@ -895,6 +1009,16 @@ export default function QuizEdit({ quiz }: QuizEditProps) {
                                     />
                                 </div>
                             </div>
+                            <p className="text-xs text-muted-foreground">
+                                This quiz's maximum possible score is {quiz.max_possible_score} points.
+                            </p>
+                            {((outcomeForm.data.score_min !== '' && Number(outcomeForm.data.score_min) > quiz.max_possible_score) ||
+                                (outcomeForm.data.score_max !== '' && Number(outcomeForm.data.score_max) > quiz.max_possible_score)) && (
+                                <p className="text-xs font-medium text-amber-600 dark:text-amber-400">
+                                    Heads up: this range goes above the maximum possible score, so part of it can never match a real
+                                    result. You can still save it — just double-check the numbers.
+                                </p>
+                            )}
                         </div>
 
                         <DialogFooter>
