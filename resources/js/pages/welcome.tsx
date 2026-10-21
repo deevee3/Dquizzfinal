@@ -87,9 +87,6 @@ export default function Welcome() {
                                         <div className="w-12 h-12 rounded-2xl bg-[#FFF5EC] flex items-center justify-center">
                                             <Target className="w-6 h-6 text-[#F48D5C]" />
                                         </div>
-                                        <div className="px-3 py-1 rounded-full bg-[#FFF5EC] text-[#F48D5C] text-xs font-bold border border-[#F48D5C]/20">
-                                            +24% Conv.
-                                        </div>
                                     </div>
                                     
                                     <div className="space-y-6">
@@ -115,10 +112,10 @@ export default function Welcome() {
                                         <div className="pt-6 mt-6 border-t border-slate-100">
                                             <div className="flex items-center justify-between text-sm text-slate-500 mb-2">
                                                 <span className="font-medium">Completion Rate</span>
-                                                <span className="text-slate-900 font-bold">84%</span>
+                                                <div className="h-2.5 w-10 bg-slate-100 rounded-full" />
                                             </div>
                                             <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-[84%] bg-gradient-to-r from-[#F48D5C] to-[#E9C46A]" />
+                                                <div className="h-full w-1/2 bg-gradient-to-r from-[#F48D5C] to-[#E9C46A]" />
                                             </div>
                                         </div>
                                     </div>
@@ -228,7 +225,7 @@ export default function Welcome() {
                                             </div>
                                             <div className="text-sm font-semibold text-slate-900">Conversion Rate</div>
                                         </div>
-                                        <span className="text-[#F48D5C] font-bold">+12.5%</span>
+                                        <div className="h-2.5 w-12 bg-slate-100 rounded-full" />
                                     </div>
                                     <div className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-100">
                                         <div className="flex items-center gap-3">
@@ -237,7 +234,7 @@ export default function Welcome() {
                                             </div>
                                             <div className="text-sm font-semibold text-slate-900">New Leads</div>
                                         </div>
-                                        <span className="text-slate-900 font-bold">1,240</span>
+                                        <div className="h-2.5 w-12 bg-slate-100 rounded-full" />
                                     </div>
                                 </div>
                                 
@@ -245,7 +242,7 @@ export default function Welcome() {
                                     <div className="flex justify-between items-end">
                                         <div>
                                             <div className="text-sm text-slate-500 mb-1">Total Revenue</div>
-                                            <div className="text-3xl font-bold text-slate-900">$42,500</div>
+                                            <div className="h-8 w-32 bg-slate-100 rounded-lg" />
                                         </div>
                                         <div className="h-16 flex items-end gap-1.5">
                                             {[40, 60, 45, 70, 50, 80, 65].map((h, i) => (
