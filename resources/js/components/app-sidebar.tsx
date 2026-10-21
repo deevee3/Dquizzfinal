@@ -5,7 +5,7 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, Sid
 import { dashboard } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { ClipboardList, FileText, LayoutGrid, Mail, Settings, Users } from 'lucide-react';
+import { ClipboardList, CreditCard, FileText, LayoutGrid, Mail, Settings, Users } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -37,6 +37,11 @@ const mainNavItems: NavItem[] = [
 ];
 
 const footerNavItems: NavItem[] = [
+    {
+        title: 'Billing',
+        href: '/billing',
+        icon: CreditCard,
+    },
     {
         title: 'Settings',
         href: '/settings/profile',

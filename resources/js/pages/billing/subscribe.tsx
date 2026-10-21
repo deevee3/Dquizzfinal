@@ -1,4 +1,5 @@
 import { AppShell } from '@/components/app-shell';
+import TestModeBanner from '@/components/test-mode-banner';
 import { Head, router } from '@inertiajs/react';
 import { Check, Sparkles } from 'lucide-react';
 import { useState } from 'react';
@@ -54,11 +55,14 @@ const PLANS = [
     },
 ];
 
-export default function Subscribe() {
+export default function Subscribe({ stripeConfigured }: { stripeConfigured: boolean }) {
     const [isAnnual, setIsAnnual] = useState(false);
     const [loading, setLoading] = useState<string | null>(null);
 
     const handleSubscribe = (plan: (typeof PLANS)[0]) => {
+        if (!stripeConfigured) {
+            return;
+        }
         const priceId = isAnnual ? plan.annualPriceId : plan.monthlyPriceId;
         if (!priceId) {
             alert('Price ID not configured. Please set up Stripe prices.');
@@ -107,6 +111,12 @@ export default function Subscribe() {
                     </div>
                 </div>
 
+                {!stripeConfigured && (
+                    <div className="mb-8 w-full max-w-5xl text-left">
+                        <TestModeBanner />
+                    </div>
+                )}
+
                 <div className="grid max-w-5xl gap-6 md:grid-cols-3">
                     {PLANS.map((plan) => (
                         <div
@@ -145,14 +155,18 @@ export default function Subscribe() {
 
                             <button
                                 onClick={() => handleSubscribe(plan)}
-                                disabled={loading !== null}
+                                disabled={loading !== null || !stripeConfigured}
                                 className={`w-full rounded-xl py-3 text-sm font-bold transition-all ${
                                     plan.popular
                                         ? 'bg-[#F48D5C] text-white shadow-lg shadow-[#F48D5C]/25 hover:bg-[#E85D04]'
                                         : 'bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600'
                                 } disabled:cursor-not-allowed disabled:opacity-50`}
                             >
-                                {loading === plan.name ? 'Redirecting...' : 'Subscribe'}
+                                {!stripeConfigured
+                                    ? 'Available when payments connect'
+                                    : loading === plan.name
+                                      ? 'Redirecting...'
+                                      : 'Subscribe'}
                             </button>
                         </div>
                     ))}

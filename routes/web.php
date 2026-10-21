@@ -39,6 +39,8 @@ Route::middleware([
     ValidateSessionWithWorkOS::class,
 ])->group(function () {
     // Billing
+    Route::get('billing', [BillingController::class, 'index'])->name('billing.index');
+    Route::get('subscription', [BillingController::class, 'subscriptionPage'])->name('subscription');
     Route::get('billing/subscribe', [BillingController::class, 'subscribe'])->name('billing.subscribe');
     Route::post('billing/checkout', [BillingController::class, 'checkout'])->name('billing.checkout');
     Route::get('billing/success', [BillingController::class, 'success'])->name('billing.success');
