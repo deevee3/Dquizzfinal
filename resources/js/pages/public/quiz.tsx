@@ -90,7 +90,7 @@ const CircularProgress = ({ current, total, color }: { current: number; total: n
 };
 
 export default function PublicQuiz({ quiz, already_completed = false }: QuizPageProps) {
-    const primaryColor = quiz.brand_settings?.primary_color || '#10b981';
+    const primaryColor = quiz.brand_settings?.primary_color || '#E97451';
 
     if (already_completed) {
         return (
@@ -99,7 +99,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                 <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-50 text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
                     <div className="absolute inset-0 z-0 overflow-hidden">
                         <div className="absolute -left-[10%] -top-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-r from-teal-400/20 to-emerald-400/20 blur-3xl filter dark:from-teal-900/20 dark:to-emerald-900/20" />
-                        <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-l from-blue-400/20 to-indigo-400/20 blur-3xl filter dark:from-blue-900/20 dark:to-indigo-900/20" />
+                        <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-l from-[#F48D5C]/20 to-[#E9C46A]/20 blur-3xl filter dark:from-[#E97451]/20 dark:to-[#E9C46A]/20" />
                     </div>
                     <div className="container relative z-10 mx-auto max-w-2xl px-4 py-8">
                         <motion.div
@@ -568,7 +568,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                     type="tel"
                                                     value={lead.phone}
                                                     onChange={(e) => setLead({ ...lead, phone: e.target.value })}
-                                                    placeholder="+1 (555) 000-0000"
+                                                    placeholder="(513) 555-0100"
                                                     className="h-12 border-slate-200 bg-white/50 dark:border-slate-700 dark:bg-slate-800/50"
                                                 />
                                             </div>

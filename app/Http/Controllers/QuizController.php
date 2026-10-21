@@ -71,8 +71,8 @@ class QuizController extends Controller
             'type' => $validated['type'],
             'lead_capture_mode' => $validated['lead_capture_mode'],
             'brand_settings' => [
-                'primary_color' => '#6366f1',
-                'secondary_color' => '#8b5cf6',
+                'primary_color' => '#E97451',
+                'secondary_color' => '#E85D04',
             ],
             'cta_settings' => [
                 'label' => 'Get Started',

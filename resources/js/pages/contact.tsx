@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import MarketingLayout from '@/layouts/marketing-layout';
 import { Head } from '@inertiajs/react';
-import { Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { Mail, MessageSquare } from 'lucide-react';
 
 export default function Contact() {
     return (
@@ -23,35 +23,23 @@ export default function Contact() {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                         {/* Contact Info */}
                         <div className="space-y-8">
-                            <h2 className="text-2xl font-bold text-slate-900">Chat with us</h2>
+                            <h2 className="text-2xl font-bold text-slate-900">Talk to a human</h2>
                             <p className="text-slate-500 text-lg">
-                                Speak to our friendly team via live chat.
+                                Questions about your account or the product? Email is the fastest way to reach us.
                             </p>
-                            
+
                             <div className="space-y-6">
-                                <ContactItem 
-                                    icon={<MessageSquare />}
-                                    title="Chat with sales"
-                                    description="Start a live chat"
-                                    action="Start Chat"
-                                />
-                                <ContactItem 
+                                <ContactItem
                                     icon={<Mail />}
                                     title="Email support"
                                     description="Get help with your account"
                                     action="support@dquizz.com"
                                 />
-                                <ContactItem 
-                                    icon={<Phone />}
-                                    title="Call us"
-                                    description="Mon-Fri from 8am to 5pm"
-                                    action="+1 (555) 000-0000"
-                                />
-                                <ContactItem 
-                                    icon={<MapPin />}
-                                    title="Visit us"
-                                    description="Come say hello at our office HQ."
-                                    action="100 Smith Street, Collingwood VIC 3066 AU"
+                                <ContactItem
+                                    icon={<MessageSquare />}
+                                    title="Product feedback"
+                                    description="Tell us what would make D'Quizz work better for you"
+                                    action="support@dquizz.com"
                                 />
                             </div>
                         </div>

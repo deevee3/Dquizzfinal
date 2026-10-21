@@ -53,7 +53,7 @@ export default function PublicResults({ quiz, submission, outcome }: ResultsPage
         setCanNativeShare(typeof navigator !== 'undefined' && typeof navigator.share === 'function');
     }, []);
 
-    const primaryColor = quiz.brand_settings?.primary_color || '#6366f1';
+    const primaryColor = quiz.brand_settings?.primary_color || '#E97451';
     const ctaLabel = outcome?.cta_override?.label || quiz.cta_settings?.label || 'Learn More';
     const ctaUrl = outcome?.cta_override?.url || quiz.cta_settings?.url;
 

@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 import MarketingLayout from '@/layouts/marketing-layout';
 import {
     BarChart3,
-    Blocks,
     LayoutTemplate,
     LineChart,
+    Mail,
     Sparkles,
     Target,
     Users,
@@ -163,20 +163,20 @@ export default function Welcome() {
                             </div>
                         </div>
 
-                        <FeatureCard 
+                        <FeatureCard
                             icon={<Users />}
                             title="Lead Capture"
-                            description="Every completion hands you a name, an email, and exactly what they want — sent straight to your CRM."
+                            description="Every completion hands you a name, an email, and exactly what they want — organized in your dashboard, ready when you are."
                         />
-                        <FeatureCard 
+                        <FeatureCard
                             icon={<BarChart3 />}
                             title="Analytics"
                             description="See where people drop off and fix it. Watch completions turn into conversations."
                         />
-                        <FeatureCard 
-                            icon={<Blocks />}
-                            title="Integrations"
-                            description="Every lead flows straight into the tools you already use — your CRM, your email, your Slack."
+                        <FeatureCard
+                            icon={<Mail />}
+                            title="Campaigns & Export"
+                            description="Follow up automatically with built-in email campaigns, and export every lead to CSV whenever you want. Your list stays yours."
                         />
                     </div>
                 </div>
