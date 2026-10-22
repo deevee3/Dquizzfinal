@@ -32,12 +32,14 @@ Route::get('/q/{slug}', [PublicQuizController::class, 'show'])->name('public.qui
 Route::post('/q/{slug}/submit', [PublicQuizController::class, 'submit'])
     ->name('public.quiz.submit')
     ->middleware('throttle:6,1'); // Limit to 6 submissions per minute
-Route::get('/q/{slug}/results/{submission}', [PublicQuizController::class, 'results'])->name('public.quiz.results');
+Route::get('/q/{slug}/results/{token}', [PublicQuizController::class, 'results'])->name('public.quiz.results');
 
 Route::middleware(
     app()->environment('local') ? ['auth'] : ['auth', ValidateSessionWithWorkOS::class]
 )->group(function () {
     // Billing
+    Route::get('billing', [BillingController::class, 'index'])->name('billing.index');
+    Route::get('subscription', [BillingController::class, 'subscriptionPage'])->name('subscription');
     Route::get('billing/subscribe', [BillingController::class, 'subscribe'])->name('billing.subscribe');
     Route::post('billing/checkout', [BillingController::class, 'checkout'])->name('billing.checkout');
     Route::get('billing/success', [BillingController::class, 'success'])->name('billing.success');

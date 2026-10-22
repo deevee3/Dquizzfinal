@@ -71,8 +71,8 @@ class QuizController extends Controller
             'type' => $validated['type'],
             'lead_capture_mode' => $validated['lead_capture_mode'],
             'brand_settings' => [
-                'primary_color' => '#6366f1',
-                'secondary_color' => '#8b5cf6',
+                'primary_color' => '#E97451',
+                'secondary_color' => '#E85D04',
             ],
             'cta_settings' => [
                 'label' => 'Get Started',
@@ -90,6 +90,18 @@ class QuizController extends Controller
 
         $quiz->load(['questions.answerOptions', 'resultOutcomes']);
 
+        // The highest total a quiz taker can actually reach. Thresholds are
+        // meaningless without it (Oct 12 audit: ranges were being set against
+        // an assumed ceiling that did not match the quiz's real maximum).
+        $maxPossibleScore = $quiz->questions->sum(function ($q) {
+            return match ($q->type) {
+                'scale' => 10,
+                'single_choice' => max(0, (int) ($q->answerOptions->max('score_value') ?? 0)),
+                'multiple_choice' => (int) $q->answerOptions->where('score_value', '>', 0)->sum('score_value'),
+                default => 0,
+            };
+        });
+
         return Inertia::render('quizzes/edit', [
             'quiz' => [
                 'id' => $quiz->id,
@@ -101,6 +113,7 @@ class QuizController extends Controller
                 'lead_capture_mode' => $quiz->lead_capture_mode,
                 'brand_settings' => $quiz->brand_settings,
                 'cta_settings' => $quiz->cta_settings,
+                'max_possible_score' => $maxPossibleScore,
                 'questions' => $quiz->questions->map(fn ($q) => [
                     'id' => $q->id,
                     'type' => $q->type,

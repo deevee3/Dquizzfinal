@@ -57,7 +57,7 @@ export default function About() {
                                         We realized that people love to learn about themselves. They want personalized feedback, not generic advice. That's why we built a platform that makes it easy to create interactive assessments and scorecards.
                                     </p>
                                     <p>
-                                        Today, we help thousands of businesses transform their lead generation strategy, turning passive visitors into engaged prospects through the power of quiz funnels.
+                                        Today, D'Quizz helps businesses transform their lead generation strategy, turning passive visitors into engaged prospects through the power of quiz funnels.
                                     </p>
                                 </div>
                             </div>
