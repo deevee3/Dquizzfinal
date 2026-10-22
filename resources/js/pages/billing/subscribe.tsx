@@ -92,7 +92,7 @@ export default function Subscribe() {
                         <span className={`text-sm font-medium ${!isAnnual ? 'text-slate-900 dark:text-white' : 'text-slate-500'}`}>Monthly</span>
                         <button
                             onClick={() => setIsAnnual(!isAnnual)}
-                            className={`relative h-7 w-14 rounded-full transition-colors duration-300 ${isAnnual ? 'bg-[#F48D5C]' : 'bg-slate-300 dark:bg-slate-600'}`}
+                            className={`relative h-7 w-14 rounded-full transition-colors duration-300 ${isAnnual ? 'bg-[#E97451]' : 'bg-slate-300 dark:bg-slate-600'}`}
                         >
                             <span
                                 className={`absolute top-1 left-1 h-5 w-5 rounded-full bg-white shadow-md transition-transform duration-300 ${isAnnual ? 'translate-x-7' : 'translate-x-0'}`}
@@ -113,12 +113,12 @@ export default function Subscribe() {
                             key={plan.name}
                             className={`relative flex flex-col rounded-2xl border p-6 transition-all duration-300 ${
                                 plan.popular
-                                    ? 'z-10 scale-105 border-[#F48D5C] bg-white shadow-2xl shadow-[#F48D5C]/10 dark:bg-slate-800'
-                                    : 'border-slate-200 bg-white hover:border-[#F48D5C]/30 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800'
+                                    ? 'z-10 scale-105 border-[#E97451] bg-white shadow-2xl shadow-[#E97451]/10 dark:bg-slate-800'
+                                    : 'border-slate-200 bg-white hover:border-[#E97451]/30 hover:shadow-lg dark:border-slate-700 dark:bg-slate-800'
                             }`}
                         >
                             {plan.popular && (
-                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#F48D5C] px-3 py-1 text-xs font-bold tracking-wider text-white shadow-lg shadow-[#F48D5C]/30">
+                                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#E97451] px-3 py-1 text-xs font-bold tracking-wider text-white shadow-lg shadow-[#E97451]/30">
                                     MOST POPULAR
                                 </div>
                             )}
@@ -137,7 +137,7 @@ export default function Subscribe() {
                             <div className="mb-6 flex-1 space-y-3">
                                 {plan.features.map((feature, i) => (
                                     <div key={i} className="flex items-start gap-2">
-                                        <Check className={`h-5 w-5 shrink-0 ${plan.popular ? 'text-[#F48D5C]' : 'text-slate-400'}`} />
+                                        <Check className={`h-5 w-5 shrink-0 ${plan.popular ? 'text-[#E97451]' : 'text-slate-400'}`} />
                                         <span className="text-sm text-slate-600 dark:text-slate-300">{feature}</span>
                                     </div>
                                 ))}
@@ -148,7 +148,7 @@ export default function Subscribe() {
                                 disabled={loading !== null}
                                 className={`w-full rounded-xl py-3 text-sm font-bold transition-all ${
                                     plan.popular
-                                        ? 'bg-[#F48D5C] text-white shadow-lg shadow-[#F48D5C]/25 hover:bg-[#E85D04]'
+                                        ? 'bg-[#E97451] text-white shadow-lg shadow-[#E97451]/25 hover:bg-[#C75B32]'
                                         : 'bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600'
                                 } disabled:cursor-not-allowed disabled:opacity-50`}
                             >

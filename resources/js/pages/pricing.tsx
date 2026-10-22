@@ -31,7 +31,7 @@ export default function Pricing() {
             <section className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#F48D5C]/30 bg-[#FFF5EC] text-[#F48D5C] text-xs font-bold mb-6 uppercase tracking-wider shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E97451]/30 bg-[#FCEEEA] text-[#E97451] text-xs font-bold mb-6 uppercase tracking-wider shadow-sm">
                             Pricing
                         </div>
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900">Simple, transparent pricing</h1>
@@ -44,7 +44,7 @@ export default function Pricing() {
                             <span className={`text-sm font-medium ${!isAnnual ? 'text-slate-900' : 'text-slate-500'}`}>Monthly</span>
                             <button
                                 onClick={() => setIsAnnual(!isAnnual)}
-                                className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isAnnual ? 'bg-[#F48D5C]' : 'bg-slate-300'}`}
+                                className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${isAnnual ? 'bg-[#E97451]' : 'bg-slate-300'}`}
                             >
                                 <span 
                                     className={`absolute top-1 left-1 w-5 h-5 rounded-full bg-white shadow-md transition-transform duration-300 ${isAnnual ? 'translate-x-7' : 'translate-x-0'}`}
@@ -143,9 +143,9 @@ function PricingCard({
     variant?: "default" | "outline"
 }) {
     return (
-        <div className={`relative p-8 rounded-[2rem] border flex flex-col transition-all duration-300 ${popular ? 'bg-white border-[#F48D5C] shadow-2xl shadow-[#F48D5C]/10 scale-105 z-10' : 'bg-white border-slate-100 hover:border-[#F48D5C]/30 hover:shadow-lg'}`}>
+        <div className={`relative p-8 rounded-[2rem] border flex flex-col transition-all duration-300 ${popular ? 'bg-white border-[#E97451] shadow-2xl shadow-[#E97451]/10 scale-105 z-10' : 'bg-white border-slate-100 hover:border-[#E97451]/30 hover:shadow-lg'}`}>
             {popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#F48D5C] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#F48D5C]/30">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#E97451] text-white text-xs font-bold uppercase tracking-wider shadow-lg shadow-[#E97451]/30">
                     Most Popular
                 </div>
             )}
@@ -162,7 +162,7 @@ function PricingCard({
             <div className="space-y-4 mb-8 flex-1">
                 {features.map((feature, i) => (
                     <div key={i} className="flex items-start gap-3">
-                        <Check className={`w-5 h-5 shrink-0 ${popular ? 'text-[#F48D5C]' : 'text-slate-400'}`} />
+                        <Check className={`w-5 h-5 shrink-0 ${popular ? 'text-[#E97451]' : 'text-slate-400'}`} />
                         <span className="text-sm text-slate-600 font-medium">{feature}</span>
                     </div>
                 ))}
@@ -170,7 +170,7 @@ function PricingCard({
 
             <Link href={href}>
                 <Button 
-                    className={`w-full h-12 rounded-xl text-base font-bold transition-all ${popular ? 'bg-[#F48D5C] hover:bg-[#E85D04] text-white shadow-lg shadow-[#F48D5C]/25' : variant === 'outline' ? 'bg-transparent border-2 border-slate-200 text-slate-600 hover:border-[#F48D5C] hover:text-[#F48D5C]' : 'bg-slate-900 text-white hover:bg-slate-800'}`}
+                    className={`w-full h-12 rounded-xl text-base font-bold transition-all ${popular ? 'bg-[#E97451] hover:bg-[#C75B32] text-white shadow-lg shadow-[#E97451]/25' : variant === 'outline' ? 'bg-transparent border-2 border-slate-200 text-slate-600 hover:border-[#E97451] hover:text-[#E97451]' : 'bg-slate-900 text-white hover:bg-slate-800'}`}
                 >
                     {cta}
                 </Button>

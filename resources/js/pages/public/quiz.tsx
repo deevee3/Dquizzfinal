@@ -90,7 +90,7 @@ const CircularProgress = ({ current, total, color }: { current: number; total: n
 };
 
 export default function PublicQuiz({ quiz, already_completed = false }: QuizPageProps) {
-    const primaryColor = quiz.brand_settings?.primary_color || '#10b981';
+    const primaryColor = quiz.brand_settings?.primary_color || '#E97451';
 
     if (already_completed) {
         return (
@@ -98,8 +98,8 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                 <Head title={quiz.title} />
                 <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-50 text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
                     <div className="absolute inset-0 z-0 overflow-hidden">
-                        <div className="absolute -left-[10%] -top-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-r from-teal-400/20 to-emerald-400/20 blur-3xl filter dark:from-teal-900/20 dark:to-emerald-900/20" />
-                        <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-l from-blue-400/20 to-indigo-400/20 blur-3xl filter dark:from-blue-900/20 dark:to-indigo-900/20" />
+                        <div className="absolute -left-[10%] -top-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-r from-[#E97451]/20 to-[#E97451]/20 blur-3xl filter dark:from-[#C75B32]/20 dark:to-[#C75B32]/20" />
+                        <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-l from-[#E97451]/20 to-[#C75B32]/20 blur-3xl filter dark:from-[#E97451]/20 dark:to-[#C75B32]/20" />
                     </div>
                     <div className="container relative z-10 mx-auto max-w-2xl px-4 py-8">
                         <motion.div
@@ -109,7 +109,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                         >
                             <div className="rounded-2xl bg-white/70 p-12 shadow-2xl backdrop-blur-xl dark:bg-slate-900/70">
                                 <div className="mb-6 flex justify-center">
-                                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">
+                                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#F9DCD3] text-[#C75B32] dark:bg-[#C75B32]/30 dark:text-[#E97451]">
                                         <Check className="h-10 w-10" />
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                     size="lg"
                                     onClick={() => window.location.reload()}
                                     style={{ backgroundColor: primaryColor }}
-                                    className="rounded-full px-8 shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                    className="rounded-full px-8 shadow-lg shadow-[#E97451]/20 transition-all hover:scale-105 hover:shadow-[#E97451]/40"
                                 >
                                     Refresh Page
                                 </Button>
@@ -279,7 +279,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                 {/* Abstract Background Shapes */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                     <div className="absolute -left-[10%] -top-[10%] h-[50vw] w-[50vw] rounded-full bg-[#ED9665]/20 blur-3xl filter mix-blend-screen" />
-                    <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-[#E9C46A]/20 blur-3xl filter mix-blend-screen" />
+                    <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-[#E8A15C]/20 blur-3xl filter mix-blend-screen" />
                 </div>
 
                 <div className="container relative z-10 mx-auto max-w-5xl px-4 py-8">
@@ -294,7 +294,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                 className="flex flex-col items-center justify-center text-center"
                             >
                                 <div className="mb-8 rounded-2xl bg-white/70 p-12 shadow-2xl backdrop-blur-xl dark:bg-slate-900/70">
-                                    <h1 className="mb-6 bg-gradient-to-r from-teal-500 to-emerald-600 bg-clip-text text-5xl font-extrabold text-transparent md:text-6xl dark:from-teal-400 dark:to-emerald-400">
+                                    <h1 className="mb-6 bg-gradient-to-r from-[#E97451] to-[#C75B32] bg-clip-text text-5xl font-extrabold text-transparent md:text-6xl dark:from-[#E97451] dark:to-[#E97451]">
                                         {quiz.title}
                                     </h1>
                                     {quiz.description && (
@@ -317,7 +317,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                             size="lg"
                                             onClick={handleNext}
                                             style={{ backgroundColor: primaryColor }}
-                                            className="h-14 rounded-full px-10 text-lg font-bold shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 hover:shadow-emerald-500/40"
+                                            className="h-14 rounded-full px-10 text-lg font-bold shadow-lg shadow-[#E97451]/20 transition-all hover:scale-105 hover:shadow-[#E97451]/40"
                                         >
                                             {quiz.cta_settings?.label || 'Start Quiz'}
                                             <ArrowRight className="ml-2 h-5 w-5" />
@@ -377,9 +377,9 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                                                 currentQuestion.type === 'multiple_choice'
                                                                             )
                                                                         }
-                                                                        className={`group relative flex w-full items-center overflow-hidden rounded-xl border-2 p-5 text-left transition-all hover:border-emerald-500/50 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/20 ${
+                                                                        className={`group relative flex w-full items-center overflow-hidden rounded-xl border-2 p-5 text-left transition-all hover:border-[#E97451]/50 hover:bg-[#FCEEEA]/50 dark:hover:bg-[#C75B32]/20 ${
                                                                             isSelected
-                                                                                ? 'border-emerald-500 bg-emerald-50 dark:border-emerald-400 dark:bg-emerald-900/30'
+                                                                                ? 'border-[#E97451] bg-[#FCEEEA] dark:border-[#E97451] dark:bg-[#C75B32]/30'
                                                                                 : 'border-slate-200 bg-white/50 dark:border-slate-700 dark:bg-slate-800/50'
                                                                         }`}
                                                                         style={isSelected ? { borderColor: primaryColor } : {}}
@@ -387,8 +387,8 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                                         <div
                                                                             className={`mr-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 transition-all ${
                                                                                 isSelected
-                                                                                    ? 'border-emerald-500 bg-emerald-500 text-white'
-                                                                                    : 'border-slate-300 text-transparent group-hover:border-emerald-400 dark:border-slate-600'
+                                                                                    ? 'border-[#E97451] bg-[#E97451] text-white'
+                                                                                    : 'border-slate-300 text-transparent group-hover:border-[#E97451] dark:border-slate-600'
                                                                             }`}
                                                                             style={isSelected ? { backgroundColor: primaryColor, borderColor: primaryColor } : {}}
                                                                         >
@@ -398,7 +398,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                                         {isSelected && (
                                                                             <motion.div
                                                                                 layoutId="outline"
-                                                                                className="absolute inset-0 z-0 border-2 border-emerald-500"
+                                                                                className="absolute inset-0 z-0 border-2 border-[#E97451]"
                                                                                 initial={false}
                                                                                 transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                                                                                 style={{ borderColor: primaryColor, borderRadius: '0.75rem' }}
@@ -422,8 +422,8 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                                         onClick={() => handleScaleSelect(currentQuestion.id, value)}
                                                                         className={`flex h-14 w-14 items-center justify-center rounded-xl border-2 text-xl font-bold transition-all ${
                                                                             isSelected
-                                                                                ? 'border-emerald-500 bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                                                                                : 'border-slate-200 bg-white text-slate-600 hover:border-emerald-300 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
+                                                                                ? 'border-[#E97451] bg-[#E97451] text-white shadow-lg shadow-[#E97451]/30'
+                                                                                : 'border-slate-200 bg-white text-slate-600 hover:border-[#E97451] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
                                                                         }`}
                                                                         style={isSelected ? { backgroundColor: primaryColor, borderColor: primaryColor } : {}}
                                                                     >
@@ -439,7 +439,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                             value={answers[currentQuestion.id]?.answer_value || ''}
                                                             onChange={(e) => handleTextAnswer(currentQuestion.id, e.target.value)}
                                                             placeholder="Type your answer here..."
-                                                            className="min-h-[160px] w-full rounded-xl border-2 border-slate-200 bg-white/50 p-4 text-lg outline-none transition-all focus:border-emerald-500 focus:ring-0 dark:border-slate-700 dark:bg-slate-800/50"
+                                                            className="min-h-[160px] w-full rounded-xl border-2 border-slate-200 bg-white/50 p-4 text-lg outline-none transition-all focus:border-[#E97451] focus:ring-0 dark:border-slate-700 dark:bg-slate-800/50"
                                                             style={{ borderColor: answers[currentQuestion.id]?.answer_value ? primaryColor : undefined }}
                                                             autoFocus
                                                         />
@@ -460,7 +460,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                         onClick={handleNext}
                                                         disabled={!canProceed()}
                                                         style={{ backgroundColor: canProceed() ? primaryColor : undefined }}
-                                                        className="rounded-full px-8 shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 hover:shadow-emerald-500/40 disabled:opacity-50"
+                                                        className="rounded-full px-8 shadow-lg shadow-[#E97451]/20 transition-all hover:scale-105 hover:shadow-[#E97451]/40 disabled:opacity-50"
                                                     >
                                                         Next Question
                                                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -583,7 +583,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                                     onClick={handleSubmit}
                                                     disabled={!canProceed() || isSubmitting}
                                                     style={{ backgroundColor: primaryColor }}
-                                                    className="rounded-full px-8 shadow-lg shadow-emerald-500/20 hover:scale-105 hover:shadow-emerald-500/40"
+                                                    className="rounded-full px-8 shadow-lg shadow-[#E97451]/20 hover:scale-105 hover:shadow-[#E97451]/40"
                                                 >
                                                     {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                                                     See Results

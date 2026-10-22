@@ -20,7 +20,7 @@ export default function Success() {
 
                     <Link
                         href="/dashboard"
-                        className="inline-flex items-center gap-2 rounded-xl bg-[#F48D5C] px-6 py-3 font-bold text-white shadow-lg shadow-[#F48D5C]/25 transition-all hover:bg-[#E85D04]"
+                        className="inline-flex items-center gap-2 rounded-xl bg-[#E97451] px-6 py-3 font-bold text-white shadow-lg shadow-[#E97451]/25 transition-all hover:bg-[#C75B32]"
                     >
                         Go to Dashboard
                         <ArrowRight className="h-4 w-4" />
