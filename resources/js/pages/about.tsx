@@ -10,7 +10,7 @@ export default function About() {
             <section className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#F48D5C]/30 bg-[#FFF5EC] text-[#F48D5C] text-xs font-bold mb-6 uppercase tracking-wider shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E97451]/30 bg-[#FCEEEA] text-[#E97451] text-xs font-bold mb-6 uppercase tracking-wider shadow-sm">
                             About Us
                         </div>
                         <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-slate-900">We're on a mission to<br />revolutionize lead gen.</h1>
@@ -44,7 +44,7 @@ export default function About() {
 
                     <div className="rounded-[2.5rem] bg-white border border-slate-100 p-8 lg:p-12 overflow-hidden relative shadow-xl shadow-slate-200/50">
                         <div className="absolute top-0 right-0 p-12 opacity-50">
-                            <div className="w-64 h-64 bg-[#FFF5EC] rounded-full blur-3xl" />
+                            <div className="w-64 h-64 bg-[#FCEEEA] rounded-full blur-3xl" />
                         </div>
                         <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                             <div>
@@ -61,7 +61,7 @@ export default function About() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="h-full min-h-[400px] rounded-3xl bg-gradient-to-br from-[#FFF5EC] to-[#F48D5C]/10 border border-[#F48D5C]/10 flex items-center justify-center relative overflow-hidden">
+                            <div className="h-full min-h-[400px] rounded-3xl bg-gradient-to-br from-[#FCEEEA] to-[#E97451]/10 border border-[#E97451]/10 flex items-center justify-center relative overflow-hidden">
                                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-80 mix-blend-multiply" />
                             </div>
                         </div>
@@ -74,8 +74,8 @@ export default function About() {
 
 function ValueCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
     return (
-        <div className="p-8 rounded-3xl bg-white border border-slate-100 hover:border-[#F48D5C]/30 hover:shadow-lg transition-all group">
-            <div className="w-12 h-12 rounded-xl bg-[#FFF5EC] flex items-center justify-center text-[#F48D5C] mb-6 group-hover:scale-110 transition-transform">
+        <div className="p-8 rounded-3xl bg-white border border-slate-100 hover:border-[#E97451]/30 hover:shadow-lg transition-all group">
+            <div className="w-12 h-12 rounded-xl bg-[#FCEEEA] flex items-center justify-center text-[#E97451] mb-6 group-hover:scale-110 transition-transform">
                 {icon}
             </div>
             <h3 className="text-xl font-bold mb-2 text-slate-900">{title}</h3>
