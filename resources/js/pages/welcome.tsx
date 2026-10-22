@@ -149,7 +149,7 @@ export default function Welcome() {
                         <div className="rounded-[2rem] bg-[#E97451] border border-[#C75B32] p-10 relative overflow-hidden group shadow-xl shadow-[#E97451]/20">
                             <div className="absolute inset-0 bg-[#B84A2B]" />
                             <div className="relative z-10">
-                                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6 backdrop-blur-sm">
+                                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6">
                                     <Zap className="w-7 h-7 text-white" />
                                 </div>
                                 <h3 className="text-2xl font-bold mb-4 text-white">Smart Scoring</h3>
