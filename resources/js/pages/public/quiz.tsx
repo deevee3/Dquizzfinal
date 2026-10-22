@@ -98,8 +98,8 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                 <Head title={quiz.title} />
                 <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-50 text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
                     <div className="absolute inset-0 z-0 overflow-hidden">
-                        <div className="absolute -left-[10%] -top-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-r from-[#E97451]/20 to-[#E97451]/20 blur-3xl filter dark:from-[#C75B32]/20 dark:to-[#C75B32]/20" />
-                        <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-gradient-to-l from-[#E97451]/20 to-[#C75B32]/20 blur-3xl filter dark:from-[#E97451]/20 dark:to-[#C75B32]/20" />
+                        <div className="absolute -left-[10%] -top-[10%] h-[50vw] w-[50vw] rounded-full bg-[#E97451]/10 dark:bg-[#E97451]/10" />
+                        <div className="absolute -bottom-[10%] -right-[10%] h-[50vw] w-[50vw] rounded-full bg-[#E97451]/10 dark:bg-[#E97451]/10" />
                     </div>
                     <div className="container relative z-10 mx-auto max-w-2xl px-4 py-8">
                         <motion.div
@@ -107,7 +107,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                             animate={{ opacity: 1, y: 0 }}
                             className="flex flex-col items-center justify-center text-center"
                         >
-                            <div className="rounded-2xl bg-white/70 p-12 shadow-2xl backdrop-blur-xl dark:bg-slate-900/70">
+                            <div className="rounded-2xl bg-white p-12 shadow-2xl dark:bg-slate-900">
                                 <div className="mb-6 flex justify-center">
                                     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#F9DCD3] text-[#C75B32] dark:bg-[#C75B32]/30 dark:text-[#E97451]">
                                         <Check className="h-10 w-10" />
@@ -293,8 +293,8 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                 transition={{ duration: 0.5 }}
                                 className="flex flex-col items-center justify-center text-center"
                             >
-                                <div className="mb-8 rounded-2xl bg-white/70 p-12 shadow-2xl backdrop-blur-xl dark:bg-slate-900/70">
-                                    <h1 className="mb-6 bg-gradient-to-r from-[#E97451] to-[#C75B32] bg-clip-text text-5xl font-extrabold text-transparent md:text-6xl dark:from-[#E97451] dark:to-[#E97451]">
+                                <div className="mb-8 rounded-2xl bg-white p-12 shadow-2xl dark:bg-slate-900">
+                                    <h1 className="mb-6 text-5xl font-extrabold text-[#C75B32] md:text-6xl dark:text-[#E97451]">
                                         {quiz.title}
                                     </h1>
                                     {quiz.description && (
@@ -341,7 +341,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
                                     {/* Question Card */}
                                     <div className="lg:col-span-8">
-                                        <Card className="overflow-hidden border-0 bg-white/80 shadow-2xl backdrop-blur-xl dark:bg-slate-900/80">
+                                        <Card className="overflow-hidden border-0 bg-white shadow-2xl dark:bg-slate-900">
                                             <CardContent className="p-8 sm:p-12">
                                                 <div className="mb-6 flex items-center justify-between lg:hidden">
                                                     <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
@@ -473,7 +473,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                     {/* Sidebar / Progress */}
                                     <div className="hidden lg:col-span-4 lg:block">
                                         <div className="sticky top-8">
-                                            <Card className="border-0 bg-white/60 shadow-xl backdrop-blur-md dark:bg-slate-900/60">
+                                            <Card className="border-0 bg-white shadow-xl dark:bg-slate-900">
                                                 <CardContent className="flex flex-col items-center p-8">
                                                     <CircularProgress
                                                         current={currentStep}
@@ -501,7 +501,7 @@ export default function PublicQuiz({ quiz, already_completed = false }: QuizPage
                                 animate={{ opacity: 1, scale: 1 }}
                                 className="mx-auto max-w-xl"
                             >
-                                <Card className="overflow-hidden border-0 bg-white/80 shadow-2xl backdrop-blur-xl dark:bg-slate-900/80">
+                                <Card className="overflow-hidden border-0 bg-white shadow-2xl dark:bg-slate-900">
                                     <CardContent className="p-8 sm:p-12">
                                         <div className="mb-8 text-center">
                                             <h2 className="text-3xl font-bold">Almost there!</h2>

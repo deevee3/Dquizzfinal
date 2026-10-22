@@ -22,7 +22,7 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
                     <div className="flex items-center gap-2">
                         <Link href="/" className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl bg-[#E97451] flex items-center justify-center shadow-lg shadow-[#E97451]/20">
-                                <Zap className="w-6 h-6 text-white" />
+                                <Zap className="w-6 h-6 text-slate-900" />
                             </div>
                             <span className="text-xl font-bold tracking-tight text-slate-900">D'Quizz</span>
                         </Link>
@@ -36,14 +36,14 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
                     <div className="flex items-center gap-4">
                         {auth.user ? (
                             <Link href={dashboard.url()}>
-                                <Button className="bg-[#F9DCD3] text-[#E97451] hover:bg-[#E97451] hover:text-white border-none shadow-none font-semibold transition-all">
+                                <Button className="bg-[#F9DCD3] text-[#B84A2B] hover:bg-[#E97451] hover:text-slate-900 border-none shadow-none font-semibold transition-all">
                                     Dashboard
                                 </Button>
                             </Link>
                         ) : (
                             <>
                                 <Link href={login.url()}>
-                                    <Button className="bg-[#F9DCD3] text-[#E97451] hover:bg-[#E97451] hover:text-white border-none shadow-none font-semibold transition-all">
+                                    <Button className="bg-[#F9DCD3] text-[#B84A2B] hover:bg-[#E97451] hover:text-slate-900 border-none shadow-none font-semibold transition-all">
                                         Dashboard
                                     </Button>
                                 </Link>
@@ -59,12 +59,12 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
             </main>
 
             {/* Footer */}
-            <footer className="relative z-10 border-t border-[#E97451]/10 bg-white/50 backdrop-blur-xl py-12 px-6">
+            <footer className="relative z-10 border-t border-[#E97451]/10 bg-white py-12 px-6">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
                     <div className="col-span-2">
                         <div className="flex items-center gap-2 mb-6">
                             <div className="w-8 h-8 rounded-lg bg-[#E97451] flex items-center justify-center">
-                                <Zap className="w-4 h-4 text-white" />
+                                <Zap className="w-4 h-4 text-slate-900" />
                             </div>
                             <span className="text-xl font-bold text-slate-900">D'Quizz</span>
                         </div>

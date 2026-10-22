@@ -24,16 +24,16 @@ export default function Welcome() {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         {/* Hero Content */}
                         <div className="relative z-10 text-center lg:text-left">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E97451]/30 bg-[#FCEEEA] text-[#E97451] text-xs font-bold mb-8 uppercase tracking-wider shadow-sm">
-                                <Sparkles className="w-3 h-3" />
-                                <span>Turn Clicks into Customers</span>
-                            </div>
                             <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-slate-900">
                                 Turn Curious Visitors <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E97451] to-[#C75B32]">
+                                <span className="text-[#B84A2B]">
                                     Into Ready Buyers
                                 </span>
                             </h1>
+                            <div className="mb-6"><div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#E97451]/30 bg-[#FCEEEA] text-[#E97451] text-xs font-bold mb-8 uppercase tracking-wider shadow-sm">
+                                <Sparkles className="w-3 h-3" />
+                                <span>Turn Clicks into Customers</span>
+                            </div></div>
                             <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                                 Stop chasing cold leads. D'Quizz asks your visitors the right questions, 
                                 scores their answers, and hands you people who already want what you sell.
@@ -41,7 +41,7 @@ export default function Welcome() {
                             </p>
                             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start mb-12">
                                 <Link href={login.url()}>
-                                    <Button size="lg" className="h-12 px-8 text-base bg-[#E97451] text-white hover:bg-[#C75B32] shadow-lg shadow-[#E97451]/25 border-none rounded-xl">
+                                    <Button size="lg" className="h-12 px-8 text-base bg-[#E97451] text-slate-900 hover:bg-[#B84A2B] hover:text-white shadow-lg shadow-[#E97451]/25 border-none rounded-xl">
                                         Start Building Free
                                     </Button>
                                 </Link>
@@ -99,7 +99,7 @@ export default function Welcome() {
                                             <div className="h-2.5 w-32 bg-slate-100 rounded-full" />
                                             <div className="grid grid-cols-2 gap-4">
                                                 <div className="h-28 rounded-xl bg-[#FCEEEA] border border-[#E97451]/20 p-5 flex flex-col justify-end relative overflow-hidden group cursor-pointer transition-all hover:shadow-md">
-                                                    <div className="w-8 h-8 rounded-full bg-[#E97451] text-white flex items-center justify-center text-xs font-bold mb-3 shadow-sm">A</div>
+                                                    <div className="w-8 h-8 rounded-full bg-[#E97451] text-slate-900 flex items-center justify-center text-xs font-bold mb-3 shadow-sm">A</div>
                                                     <div className="h-2 w-16 bg-[#E97451]/30 rounded-full" />
                                                 </div>
                                                 <div className="h-28 rounded-xl bg-slate-50 border border-slate-100 p-5 flex flex-col justify-end relative overflow-hidden group cursor-pointer transition-all hover:bg-slate-100">
@@ -115,7 +115,7 @@ export default function Welcome() {
                                                 <div className="h-2.5 w-10 bg-slate-100 rounded-full" />
                                             </div>
                                             <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                                                <div className="h-full w-1/2 bg-gradient-to-r from-[#E97451] to-[#E9C46A]" />
+                                                <div className="h-full w-1/2 bg-[#E97451]" />
                                             </div>
                                         </div>
                                     </div>
@@ -147,7 +147,7 @@ export default function Welcome() {
                         </div>
                         
                         <div className="rounded-[2rem] bg-[#E97451] border border-[#C75B32] p-10 relative overflow-hidden group shadow-xl shadow-[#E97451]/20">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#E97451] to-[#C75B32]" />
+                            <div className="absolute inset-0 bg-[#B84A2B]" />
                             <div className="relative z-10">
                                 <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mb-6 backdrop-blur-sm">
                                     <Zap className="w-7 h-7 text-white" />
@@ -308,7 +308,7 @@ export default function Welcome() {
             <section className="py-20 px-6">
                 <div className="max-w-5xl mx-auto">
                     <div className="relative rounded-[2.5rem] overflow-hidden p-12 lg:p-16 text-center bg-[#E97451] shadow-2xl shadow-[#E97451]/20">
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#E97451] to-[#C75B32]" />
+                        <div className="absolute inset-0 bg-[#B84A2B]" />
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
                         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
                         
@@ -346,7 +346,7 @@ function StepItem({ number, title, description, active }: { number: string, titl
     return (
         <div className={`flex gap-6 group cursor-default`}>
             <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all ${active ? 'bg-[#E97451] text-white shadow-lg shadow-[#E97451]/30' : 'bg-slate-100 text-slate-400 group-hover:bg-[#E97451]/10 group-hover:text-[#E97451]'}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all ${active ? 'bg-[#E97451] text-slate-900 shadow-lg shadow-[#E97451]/30' : 'bg-slate-100 text-slate-400 group-hover:bg-[#E97451]/10 group-hover:text-[#E97451]'}`}>
                     {number}
                 </div>
                 {!active && <div className="w-px h-full bg-slate-200 my-4" />}
