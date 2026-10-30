@@ -111,7 +111,7 @@ class BillingController extends Controller
         // Renewal date is not in the local Cashier tables; fetch it from
         // Stripe only when payments are actually connected.
         $renewsAt = null;
-        if ($this->stripeConfigured() && $subscription->active() && ! $subscription->cancelled()) {
+        if ($this->stripeConfigured() && $subscription->active() && ! $subscription->canceled()) {
             try {
                 $stripeSubscription = $subscription->asStripeSubscription();
                 if (! empty($stripeSubscription->current_period_end)) {
@@ -130,7 +130,7 @@ class BillingController extends Controller
             'active' => $subscription->active(),
             'on_trial' => $subscription->onTrial(),
             'trial_ends_at' => $subscription->trial_ends_at?->format('M d, Y'),
-            'cancelled' => $subscription->cancelled(),
+            'cancelled' => $subscription->canceled(),
             'on_grace_period' => $subscription->onGracePeriod(),
             'ends_at' => $subscription->ends_at?->format('M d, Y'),
             'renews_at' => $renewsAt,
@@ -221,12 +221,32 @@ class BillingController extends Controller
                 ->with('error', 'That plan is not available for checkout. If this keeps happening, the Stripe prices may not be configured yet.');
         }
 
-        return $request->user()
+        // Already subscribed: a new Checkout session would create a SECOND
+        // subscription (and a second bill), not switch the plan. Send them
+        // to the payment portal instead, where Stripe handles plan changes.
+        if ($request->user()->subscribed('default')) {
+            return redirect()->route('subscription')
+                ->with('error', 'You already have an active subscription — change plans from the payment portal below instead of checking out again, so you are not billed twice.');
+        }
+
+        $checkout = $request->user()
             ->newSubscription('default', $request->price_id)
             ->checkout([
                 'success_url' => route('billing.success') . '?session_id={CHECKOUT_SESSION_ID}',
                 'cancel_url' => route('pricing'),
             ]);
+
+        // The subscribe/subscription pages post via Inertia (XHR). A plain
+        // 303 to checkout.stripe.com gets swallowed by that XHR — Inertia
+        // only follows external redirects from a 409 + X-Inertia-Location
+        // response — so the button used to spin and go nowhere. Return the
+        // Inertia location response for Inertia requests so the browser
+        // does a full navigation to Stripe; plain requests keep the 303.
+        if ($request->header('X-Inertia')) {
+            return Inertia::location($checkout->asStripeCheckoutSession()->url);
+        }
+
+        return $checkout;
     }
 
     /**

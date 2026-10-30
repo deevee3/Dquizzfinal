@@ -50,7 +50,7 @@ class HandleInertiaRequests extends Middleware
             'subscription' => $user ? [
                 'active' => $user->isSuperAdmin() || $user->subscribed('default'),
                 'onTrial' => $user->onTrial('default'),
-                'cancelled' => $user->subscription('default')?->cancelled() ?? false,
+                'cancelled' => $user->subscription('default')?->canceled() ?? false,
                 'onGracePeriod' => $user->subscription('default')?->onGracePeriod() ?? false,
                 'plan' => $user->subscription('default')?->stripe_price,
             ] : null,
