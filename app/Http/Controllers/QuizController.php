@@ -264,6 +264,7 @@ class QuizController extends Controller
     public function updateQuestion(Request $request, Quiz $quiz, Question $question)
     {
         $this->authorize('update', $quiz);
+        abort_unless((int) $question->quiz_id === (int) $quiz->id, 404);
 
         $validated = $request->validate([
             'type' => 'required|in:single_choice,multiple_choice,scale,open_text',
@@ -322,6 +323,7 @@ class QuizController extends Controller
     public function destroyQuestion(Quiz $quiz, Question $question)
     {
         $this->authorize('update', $quiz);
+        abort_unless((int) $question->quiz_id === (int) $quiz->id, 404);
 
         $question->answerOptions()->delete();
         $question->delete();
@@ -375,6 +377,7 @@ class QuizController extends Controller
     public function updateOutcome(Request $request, Quiz $quiz, ResultOutcome $outcome)
     {
         $this->authorize('update', $quiz);
+        abort_unless((int) $outcome->quiz_id === (int) $quiz->id, 404);
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -393,6 +396,7 @@ class QuizController extends Controller
     public function destroyOutcome(Quiz $quiz, ResultOutcome $outcome)
     {
         $this->authorize('update', $quiz);
+        abort_unless((int) $outcome->quiz_id === (int) $quiz->id, 404);
 
         $outcome->delete();
 

@@ -9,7 +9,7 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SubmissionController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use Laravel\WorkOS\Http\Middleware\ValidateSessionWithWorkOS;
+use App\Http\Middleware\ValidateAuthSession;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -27,6 +27,14 @@ Route::get('/contact', function () {
     return Inertia::render('contact');
 })->name('contact');
 
+Route::get('/privacy', function () {
+    return Inertia::render('privacy');
+})->name('privacy');
+
+Route::get('/terms', function () {
+    return Inertia::render('terms');
+})->name('terms');
+
 // Public Quiz Routes (no auth required)
 Route::get('/q/{slug}', [PublicQuizController::class, 'show'])->name('public.quiz.show');
 Route::post('/q/{slug}/submit', [PublicQuizController::class, 'submit'])
@@ -35,7 +43,7 @@ Route::post('/q/{slug}/submit', [PublicQuizController::class, 'submit'])
 Route::get('/q/{slug}/results/{token}', [PublicQuizController::class, 'results'])->name('public.quiz.results');
 
 Route::middleware(
-    app()->environment('local') ? ['auth'] : ['auth', ValidateSessionWithWorkOS::class]
+    ['auth', ValidateAuthSession::class]
 )->group(function () {
     // Billing
     Route::get('billing', [BillingController::class, 'index'])->name('billing.index');

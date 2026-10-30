@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use App\Models\CampaignStep;
 use App\Models\CampaignSubscription;
+use App\Models\Lead;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -59,7 +61,7 @@ class CampaignController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'trigger_quiz_id' => 'nullable|exists:quizzes,id',
+            'trigger_quiz_id' => ['nullable', Rule::exists('quizzes', 'id')->where('owner_id', $request->user()->id)],
             'from_name' => 'nullable|string|max:255',
             'from_email' => 'nullable|email|max:255',
         ]);
@@ -121,7 +123,7 @@ class CampaignController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'trigger_quiz_id' => 'nullable|exists:quizzes,id',
+            'trigger_quiz_id' => ['nullable', Rule::exists('quizzes', 'id')->where('owner_id', $request->user()->id)],
             'from_name' => 'nullable|string|max:255',
             'from_email' => 'nullable|email|max:255',
         ]);
@@ -163,7 +165,7 @@ class CampaignController extends Controller
             'type' => 'required|in:email,quiz,delay',
             'subject' => 'required_if:type,email|nullable|string|max:255',
             'email_content' => 'required_if:type,email|nullable|string',
-            'quiz_id' => 'required_if:type,quiz|nullable|exists:quizzes,id',
+            'quiz_id' => ['required_if:type,quiz', 'nullable', Rule::exists('quizzes', 'id')->where('owner_id', $request->user()->id)],
             'delay_days' => 'nullable|integer|min:0',
             'delay_hours' => 'nullable|integer|min:0|max:23',
         ]);
@@ -181,12 +183,13 @@ class CampaignController extends Controller
     public function updateStep(Request $request, Campaign $campaign, CampaignStep $step)
     {
         $this->authorize('update', $campaign);
+        abort_unless((int) $step->campaign_id === (int) $campaign->id, 404);
 
         $validated = $request->validate([
             'type' => 'required|in:email,quiz,delay',
             'subject' => 'required_if:type,email|nullable|string|max:255',
             'email_content' => 'required_if:type,email|nullable|string',
-            'quiz_id' => 'required_if:type,quiz|nullable|exists:quizzes,id',
+            'quiz_id' => ['required_if:type,quiz', 'nullable', Rule::exists('quizzes', 'id')->where('owner_id', $request->user()->id)],
             'delay_days' => 'nullable|integer|min:0',
             'delay_hours' => 'nullable|integer|min:0|max:23',
         ]);
@@ -199,6 +202,7 @@ class CampaignController extends Controller
     public function destroyStep(Campaign $campaign, CampaignStep $step)
     {
         $this->authorize('update', $campaign);
+        abort_unless((int) $step->campaign_id === (int) $campaign->id, 404);
 
         $step->delete();
 
@@ -280,7 +284,9 @@ class CampaignController extends Controller
         ]);
 
         // Verify the lead is from the campaign's trigger quiz
-        $lead = Lead::findOrFail($validated['lead_id']);
+        $lead = Lead::whereKey($validated['lead_id'])
+            ->whereHas('quiz', fn ($q) => $q->where('owner_id', $request->user()->id))
+            ->firstOrFail();
         
         if ($campaign->trigger_quiz_id && $lead->quiz_id !== $campaign->trigger_quiz_id) {
             return back()->withErrors(['lead_id' => 'This lead is not from the trigger quiz.']);
@@ -311,6 +317,7 @@ class CampaignController extends Controller
     public function removeSubscriber(Campaign $campaign, CampaignSubscription $subscription)
     {
         $this->authorize('update', $campaign);
+        abort_unless((int) $subscription->campaign_id === (int) $campaign->id, 404);
 
         $subscription->update([
             'status' => 'unsubscribed',

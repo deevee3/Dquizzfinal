@@ -47,7 +47,7 @@ export default function About() {
                             <div className="w-64 h-64 bg-[#FCEEEA] rounded-full blur-3xl" />
                         </div>
                         <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
-                            <div>
+                            <div className="min-w-0">
                                 <h2 className="text-3xl font-bold mb-6 text-slate-900">Our Story</h2>
                                 <div className="space-y-4 text-slate-500 text-lg leading-relaxed">
                                     <p>
@@ -61,7 +61,7 @@ export default function About() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="h-full min-h-[400px] rounded-3xl bg-gradient-to-br from-[#FCEEEA] to-[#E97451]/10 border border-[#E97451]/10 flex items-center justify-center relative overflow-hidden">
+                            <div className="h-full min-h-[400px] min-w-0 rounded-3xl bg-gradient-to-br from-[#FCEEEA] to-[#E97451]/10 border border-[#E97451]/10 flex items-center justify-center relative overflow-hidden">
                                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center opacity-80 mix-blend-multiply" />
                             </div>
                         </div>

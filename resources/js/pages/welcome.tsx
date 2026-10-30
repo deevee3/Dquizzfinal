@@ -24,7 +24,7 @@ export default function Welcome() {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                         {/* Hero Content */}
                         <div className="relative z-10 text-center lg:text-left">
-                            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-slate-900">
+                            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 text-slate-900">
                                 Turn Curious Visitors <br />
                                 <span className="text-[#B84A2B]">
                                     Into Ready Buyers
@@ -45,23 +45,25 @@ export default function Welcome() {
                                         Start Building Free
                                     </Button>
                                 </Link>
-                                <Button variant="outline" size="lg" className="h-12 px-8 text-base border-slate-200 bg-white/50 hover:bg-white text-slate-700 rounded-xl">
-                                    View Demo
-                                </Button>
+                                <Link href="/q/drug-shortage-demo">
+                                    <Button variant="outline" size="lg" className="h-12 px-8 text-base border-slate-200 bg-white text-slate-700 hover:bg-slate-50 rounded-xl">
+                                        View Demo
+                                    </Button>
+                                </Link>
                             </div>
 
                             {/* Why it works */}
-                            <div className="grid grid-cols-3 gap-8 border-t border-slate-200 pt-8 max-w-lg mx-auto lg:mx-0">
+                            <div className="flex flex-col items-center gap-6 border-t border-slate-200 pt-8 max-w-lg mx-auto text-center sm:grid sm:grid-cols-3 sm:gap-8 sm:items-start sm:text-left lg:mx-0">
                                 <div>
-                                    <div className="text-3xl font-bold text-slate-900 mb-1">Qualified</div>
+                                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Qualified</div>
                                     <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Leads scored before they reach you</div>
                                 </div>
                                 <div>
-                                    <div className="text-3xl font-bold text-slate-900 mb-1">Segmented</div>
+                                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Segmented</div>
                                     <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Every answer tags itself</div>
                                 </div>
                                 <div>
-                                    <div className="text-3xl font-bold text-slate-900 mb-1">Yours</div>
+                                    <div className="text-2xl sm:text-3xl font-bold text-slate-900 mb-1">Yours</div>
                                     <div className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Your list, your data, no middleman</div>
                                 </div>
                             </div>
@@ -191,7 +193,7 @@ export default function Welcome() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-6">
+                        <div className="space-y-6 min-w-0">
                             <StepItem 
                                 number="01" 
                                 title="Ask what matters"
@@ -209,7 +211,7 @@ export default function Welcome() {
                                 description="Each person gets a personalized result that makes your offer the obvious next step."
                             />
                         </div>
-                        <div className="relative">
+                        <div className="relative min-w-0">
                             <div className="absolute inset-0 bg-[#FCEEEA] blur-3xl rounded-full opacity-60" />
                             <div className="relative bg-white border border-slate-100 rounded-3xl p-8 shadow-xl">
                                 <div className="flex items-center gap-4 mb-8">

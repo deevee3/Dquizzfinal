@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { dashboard, login } from '@/routes';
 import { type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { Globe2, ShieldCheck, Zap } from 'lucide-react';
+import { Globe2, ShieldCheck } from 'lucide-react';
 import { PropsWithChildren } from 'react';
 
 export default function MarketingLayout({ children }: PropsWithChildren) {
@@ -18,13 +18,10 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
 
             {/* Navbar */}
             <nav className="fixed top-0 left-0 right-0 z-50 bg-[#FDF8F4]/80 backdrop-blur-md border-b border-[#E97451]/10">
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+                    <div className="flex shrink-0 items-center gap-2">
                         <Link href="/" className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-[#E97451] flex items-center justify-center shadow-lg shadow-[#E97451]/20">
-                                <Zap className="w-6 h-6 text-slate-900" />
-                            </div>
-                            <span className="text-xl font-bold tracking-tight text-slate-900">D'Quizz</span>
+                            <img src="/dquizz-logo.png" alt="D'Quizz" className="h-8 sm:h-10 w-auto" />
                         </Link>
                     </div>
                     <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
@@ -33,7 +30,7 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
                         <Link href="/pricing" className="hover:text-[#E97451] transition-colors">Pricing</Link>
                         <Link href="/contact" className="hover:text-[#E97451] transition-colors">Contact</Link>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex shrink-0 items-center gap-2 sm:gap-4">
                         {auth.user ? (
                             <Link href={dashboard.url()}>
                                 <Button className="bg-[#F9DCD3] text-[#B84A2B] hover:bg-[#E97451] hover:text-slate-900 border-none shadow-none font-semibold transition-all">
@@ -54,7 +51,7 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
             </nav>
 
             {/* Main Content */}
-            <main className="relative z-10 pt-20">
+            <main className="relative z-10 pt-16 sm:pt-20">
                 {children}
             </main>
 
@@ -63,10 +60,7 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
                 <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
                     <div className="col-span-2">
                         <div className="flex items-center gap-2 mb-6">
-                            <div className="w-8 h-8 rounded-lg bg-[#E97451] flex items-center justify-center">
-                                <Zap className="w-4 h-4 text-slate-900" />
-                            </div>
-                            <span className="text-xl font-bold text-slate-900">D'Quizz</span>
+                            <img src="/dquizz-logo.png" alt="D'Quizz" className="h-9 w-auto" />
                         </div>
                         <p className="text-slate-500 max-w-sm">
                             Transforming passive visitors into engaged prospects through the power of quiz funnels.
@@ -83,8 +77,8 @@ export default function MarketingLayout({ children }: PropsWithChildren) {
                     <div>
                         <h4 className="font-bold mb-6 text-slate-900">Legal</h4>
                         <ul className="space-y-4 text-slate-500">
-                            <li><a href="#" className="hover:text-[#E97451] transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-[#E97451] transition-colors">Terms of Service</a></li>
+                            <li><Link href="/privacy" className="hover:text-[#E97451] transition-colors">Privacy Policy</Link></li>
+                            <li><Link href="/terms" className="hover:text-[#E97451] transition-colors">Terms of Service</Link></li>
                         </ul>
                     </div>
                 </div>
